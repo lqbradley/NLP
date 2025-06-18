@@ -1,0 +1,11 @@
+8	build date	2022-01-31
+22	WORD_TYPES	74753
+26	SENTENCES	30000
+27	WORD_TOKENS	531875
+28	SOURCES	29556
+201	git revision toolchain	7a30570b69701e35ba338b88367c9eba566ff4f3
+202	git revision resources	06e323590cbe40076aae09303e30ca5f98aa8488
+231	git revision pos-tagger-resources	cb8c91757a8b273f292d294c8490ccbff61e6b52
+230	git revision pos-tagger	bed6bf245821ca20c18f4f4a998763bd5acdb1d9
+253	git revision coocSim	4a3f194a3b8a0268e250ea2f4fa2322d935c4cff
+254	git revision gdexRanking	788bf6895c0f07b4619e1e90561d9013137f4737

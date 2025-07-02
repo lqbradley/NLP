@@ -12,6 +12,7 @@ import logging
 import psutil
 import os
 
+# code mostly from https://medium.com/ai-agent-insider/developing-rag-systems-with-deepseek-r1-ollama-66a520bf0b88
 
 class RAGPipeline:
     def __init__(self, model_name: str = "llama3", max_memory_gb: float = 3.0):

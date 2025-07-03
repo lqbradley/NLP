@@ -1,0 +1,120 @@
+version: '3.1'
+intents:
+- affirm
+- deny
+- goodbye
+- greet
+- nlu_fallback
+- out_of_scope
+- select_application
+- select_apply_funding
+- select_document
+- select_erasmus
+- select_erasmus_apply
+- select_erasmus_funding
+- select_erasmus_more_info
+- select_funding
+- select_links
+- select_links_funding
+- select_more_info
+- select_not_erasmus
+- select_partner_universities
+- select_process
+- stop
+- tell_degree
+- thankyou
+slots:
+  slot_erasmus_funding:
+    type: bool
+    influence_conversation: true
+    initial_value: false
+    mappings:
+    - type: from_intent
+      value: true
+  slot_erasmus:
+    type: bool
+    influence_conversation: true
+    initial_value: false
+    mappings:
+    - type: custom
+  slot_degree_program:
+    type: list
+    influence_conversation: false
+    initial_value: ''
+    mappings:
+    - type: custom
+      intent: tell_degree
+entities:
+- study_program
+- erasmus
+responses:
+  utter_outofscope:
+  - text: "Sorry but I am unable to provide an answer to that"
+  utter_ask_continue:
+  - text: "Would you like to continue your search for a degree program?"
+  utter_goodbye:
+  - text: Thank you for chatting with me. Have a great day!
+  utter_actions:
+  - text: Hey there! Welcome! I'm here to assist you with any questions you might have about your exchange semester. Feel free to ask me about funding, partner universities, Erasmus, the application process, or anything else you need information on. I can also point you in the right direction for more resources. How can I help you today?
+  utter_application:
+  - text: I'm here to help. Do you need information on the required documents or the application process?
+  utter_process:
+  - text: "Great choice! To apply, head over to [Mobility Online](https://www.service4mobility.com/thdeg/BewerbungServlet?identifier=DEGGEND01&kz_bew_art=OUT&kz_bew_pers=S&aust_prog=SMS&sprache=en). Once registered, upload your application documents, including your CV with a photo, a motivational letter explaining your reasons for applying, your enrollment certificate, and your DIT transcript. If you're in the 1st semester, you can submit your transcript later, but be sure to do so before the end of February. The application deadline for both winter and summer semesters is February 15th. In mid-March, we'll send you an email with details about the partner university you've been accepted to and any additional documents needed to secure your place with the International Office. "
+  utter_more_application_info:
+  - text: Certainly! You can find additional details on the exchange semester application process on our website [here](https://www.th-deg.de/en/students/going-abroad#study-abroad)
+  utter_erasmus:
+  - text: Certainly! Erasmus+ is a European scholarship program that supports, promotes, and funds student mobility across Europe. Universities participating in this program, through bilateral agreements, commit to waiving tuition fees, assisting students in finding local accommodation, and recognizing achievements obtained in their respective degree programs.
+  utter_erasmus_application:
+  - text: Yes, absolutely! You can find more details on the application process for Erasmus+ [here](https://www.th-deg.de/en/students/going-abroad#accordion-6566529f67838-2). If you need further assistance with anything else, feel free to let me know!
+  utter_erasmus_options:
+  - text: Would you like to know how to apply to this program? Or would you like more information about erasmus?
+  utter_funding_options:
+  - text: Absolutely! Securing funding is important. Have you already made up your mind about going through ERASMUS for your exchange semester, or are you still deciding?
+  utter_erasmus_funding:
+  - text: Fantastic decision! Here's a [quick overview](https://www.th-deg.de/en/students/going-abroad#accordion-6566529f67838-2) of the assistance ERASMUS can provide
+  utter_further_funding:
+  - text: " If you're also interested in exploring other scholarship options, feel free to let me know!"
+  utter_funding_application:
+  - text: Yes, absolutely! You can find more details on the application process for Erasmus+ [here.](https://www.th-deg.de/en/students/going-abroad#accordion-6566529f67838-2)
+  utter_all_funding:
+  - text: Of course! You can explore various scholarships for exchange students [here](https://www.th-deg.de/en/students/going-abroad#funding). Let me know if you need more details or have specific questions!
+  utter_funding_links:
+  - text: Certainly! You can find application details for the scholarships on our website [here](https://www.th-deg.de/en/students/going-abroad#funding).
+  utter_links:
+  - text: ' No worries! If you need additional information, check out these useful links related to exchange semesters [here](https://www.th-deg.de/en/students/going-abroad#prep). Each link covers specific aspects.'
+  utter_documents:
+  - text: 'Apply by following this [link] (https://www.service4mobility.com/thdeg/BewerbungServlet?identifier=DEGGEND01&kz_bew_art=OUT&kz_bew_pers=S&aust_prog=SMS&sprache=en) and submit the following documents: CV, Transcript of records, Photo, Letter of motivation, Enrolment certificate. If you are planning to partake in the ERASMUS program then the Grant Agreement and Learning Agreement will also be needed.  Additional information regarding the selection criteria can be found [here](https://www.th-deg.de/en/students/going-abroad#accordion-656871a51546a-2). If you need further help on writing a CV or a letter of motivation do not hesitate to contact the International Office [here.](https://www.th-deg.de/en/Anna-Grantner-Studienzentrum%20und%20International%20Office-International%20Office-7127777?organisation=Centre%2520for%2520Studies%2520and%2520International%2520Office&id=7127777_Anna_Grantner_SZIO&vorname=Anna&nachname=Grantner)'
+  utter_ask_slot_erasmus:
+  - text: Great choice! To provide you with the best options, could you please specify if you're interested in Erasmust+?
+  utter_erasmus_more_info:
+  - text: You can explore more about the erasmus+ program [here](https://www.th-deg.de/en/students/going-abroad#erasmus+)
+  utter_ask_slot_degree_program:
+  - text: Exciting times! To tailor the options more specifically to you, could you please tell me what you are currently studying?
+  utter_ask_rephrase:
+  - text: Sorry, I didn't get that. Could you please rephrase your request?
+  utter_youarewelcome:
+  - text: Of course! I am always glad to help. Let me know if there is anything else you need assistance with
+  utter_default:
+  - text: I'm sorry, I can't help you. Please try contacting the International Office for further assistance
+actions:
+- utter_ask_slot_erasmus
+- utter_erasmus
+- utter_process
+- utter_erasmus_application
+- utter_erasmus_funding
+- utter_outofscope
+- utter_more_info
+- utter_did_that_help
+- utter_funding_links
+- utter_exchange_website_link
+- utter_funding_application
+- utter_links
+- utter_actions
+- utter_further_funding
+- utter_funding_options
+- utter_documents
+- utter_more_application_info
+- action_get_universities
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

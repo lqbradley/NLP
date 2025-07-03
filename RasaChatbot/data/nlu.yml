@@ -1,0 +1,420 @@
+version: "3.1"
+nlu:
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Define differential equations
+    - What is quantum mechanics?
+    - Who is the US President?
+    - What is the answer to life?
+    - i want to order food
+- intent: stop
+  examples: |
+    - i don't need it
+    - i'm okay with this
+    - stop
+    - enough
+    - i don't need anything more, thank you
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - ciao
+- intent: thankyou
+  examples: |
+    - Perfect,thank you!
+    - tyy
+    - perff, ty
+    - tks
+    - thanks man
+    - thanks, I appreciate it
+    - thanks! this is helpful
+    - thanks, bye
+    - Thanks! I'll check it out
+    - thanks! that helps
+    - got it, thanks!
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - yeah
+    - yep
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yes it did
+- intent: deny
+  examples: |
+    - no
+    - n
+    - nope
+    - absolutely not
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: select_application
+  examples: |
+    - I want to know how to apply for an exchange semester
+    - exchange semester application
+    - How can I apply for an exchange semester?
+    - I'm interested in applying for an exchange semester
+    - Please explain how to apply for an exchange semester\??/
+    - I want to know more about applying for a semester exchange
+    - Tell me the process for applying for an exchange program.
+    - /[Cc]an you guide me on how to apply for a semester abroad\??/
+    - I need help applying for an exchange semester abroad
+    - The application
+- intent: select_process
+  examples: |
+    - Explain the process of applying for an exchange semester
+    - Let's start with the application process
+    - Tell me the process for applying for an exchange program\??/
+    - I need help with the exchange semester application process
+    - Walk me through the list of things I need to do to apply for an exchange semester
+    - What do i need to do to apply?
+    - Let's go with the application process
+    - How does the application process for an exchange program work?
+    - What are the steps involved in applying for a semester abroad?
+    - Walk me through the exchange semester application process
+    - Tell me about the procedure for applying for an exchange program
+    - Can you outline the steps for applying for a semester abroad?
+    - i want to learn more about the application rpocess for a semester abroad
+
+- intent: select_erasmus
+  examples: |
+    - Tell me about Erasmus programs
+    - Hey, I heard about Erasmus+ and I'm interested. Can you tell me more about it?
+    - What is Erasmus and how does it work?
+    - Explain Erasmus exchange opportunities
+    - I'm interested in Erasmus, can you provide details?
+    - Share information about Erasmus exchange
+    - Tell me more about the Erasmus program
+    - What is Erasmus?
+    - [Ee]rasmus\??/
+    - I want to learn more about the Erasmus\+/ program
+    - what can you tell me about erasmus?
+    - what is erasmus?
+    - i want to know more about erasmus
+- intent: select_erasmus_apply
+  examples: |
+    - How can I apply for Erasmus exchange?
+    - What is the application process for Erasmus programs?
+    - Can you guide me on applying for Erasmus?
+    - I'm interested in Erasmus, how do I apply?
+    - Tell me the steps to apply for Erasmus exchange
+    - Explain the application process for Erasmus programs
+    - How can I apply to this program
+    - What do I need to do to apply?
+    - Explain the details to apply to erasmus
+    - Tell me how to apply to this program
+    - Nice! Where can I find more information on erasmus+
+    - i want to know how to apply to erasmus program
+- intent: select_erasmus_more_info
+  examples: |
+    - I need more information about Erasmus
+    - Tell me additional details about Erasmus exchange
+    - What other information is available regarding Erasmus programs?
+    - Can you provide more details on applying for Erasmus?
+    - I want to know more about the Erasmus program
+    - Give me more information on Erasmus exchange
+- intent: select_erasmus_funding
+  examples: |
+    - How does funding work for Erasmus programs?
+    - I think I will apply for an [Ee]rasmus exchange?
+    - maybe erasmus
+    - most likely erasmus
+    - most likely yes
+    - i'm pretty sure i will go with erasmus
+    - I'm trying to apply through Erasmus+
+    - Let's start with the options for erasmus exchanges
+    - I want to know more about the financial aid available for erasmus participants
+    - Tell me about financial support for Erasmus exchange
+    - What funding options are available for Erasmus?
+    - Explain the funding process for Erasmus programs
+    - Can you provide information on financial assistance for Erasmus?
+    - I'm curious about funding for Erasmus exchange
+    - Sure, i'm interested in erasmus
+    - Where can I find more information on erasmus and the support I can get expect to receive?
+    - how much will erasmus help me?
+    - i am considering to go abroad with erasmus
+    - what are my funding options with erasmus?
+    - how does funding work for erasmus programs?
+- intent: select_not_erasmus
+  examples: |
+    - I'm not interested in Erasmus programs
+    - Exclude me from Erasmus exchange opportunities
+    - I don't want information about Erasmus
+    - Provide details about non-Erasmus exchange programs
+    - Tell me about exchange opportunities other than Erasmus
+    - I'm looking for options that are not related to Erasmus
+    - I haven't decided yet. Can you still provide some information on available scholarships?
+    - What are some other available financial assistance?
+    - What other aid can I apply for?
+    - What other forms of financial assistance are out there?
+    - Can you tell me about scholarship options aside from Erasmus?
+- intent: select_funding
+  examples: |
+    - Tell me about funding options for exchange programs
+    - Is there any financial aid available for exchange programs?
+    - Can you tell me about the funding options for exchange programs?
+    - What financial support is there?
+    - What are my optionss about funding?
+    - I want to learn more about financial aid available to study abroad
+    - What financial support is available for studying abroad?
+    - Explain the funding process for international exchanges
+    - Can you provide information on financial assistance for exchanges?
+    - I'm curious about funding for exchange programs
+    - How does funding work for studying abroad?
+    - I'm curious about funding options for exchange programs
+    - I'm curious to learn about the variety of financial aid options
+    - I want to know more about scholarship offers.
+    - Please tell me more about the available financial aid offers.
+    - i want to know what funding options are available for my exchange semester
+- intent: select_links
+  examples: |
+    - Give me useful links related to exchange programs
+    - I've learned a lot, but I need more information. Where can I find it?
+    - Where to find more info?
+    - I want to do more research, can you tell me where to start?
+    - Where should I start researching for my year abroad?
+    - I've gathered some information, but I need more. Where should I look?
+    - Please guide me to more available resources
+    - Tell me how I can learn more
+    - Where do I find more details on exchange programs?
+    - Where do you recommend I start my research?
+    - Provide URLs for more information on international exchanges
+    - Can you share links to resources about studying abroad?
+    - I want online resources about exchange programs
+    - Share web links for information on international study opportunities
+    - What are some online sources for exchange program information?
+    - i've learned a lot, where can i go to find more information?
+- intent: select_document
+  examples: |
+    - Can you provide documents related to exchange programs?
+    - Give me paperwork for studying abroad
+    - Share documents regarding international exchange opportunities
+    - I need official documents for exchange programs
+    - Can you send me application forms for studying abroad?
+    - Provide me with relevant paperwork for international exchanges
+    - I know the process, but what documents do I need for the application?
+    - I've got a grasp on the application process. What documents do I need?
+    - What are the required documents for application?
+    - Where do I apply?
+    - Which link can I follow to apply to the exchange programs?
+    - What do I need to submit?
+    - What is needed for the application?
+    - What do they want from me?
+    - Do they need a CV?
+    - Will I need to provide a Transcript of Records?
+    - Should I write a CV?
+    - Do I need to take a photo?
+    - Is a photo necessary to apply?
+    - Do I need to get a letter of motivation to apply?
+    - Is submitting only my CV enough?
+    - What other documents do I need beside my grades?
+    - I have a CV, what other documents do I need to provide
+    - Photo needed?
+    - What are the application essentials I shouldn't miss?
+    - Will I need an enrollment certificate?
+    - Is a CV important for going abroad?
+    - I need help writing a CV
+    - Where do I get my transcript?
+    - Will I need a CV?
+    - what documents will i nedd to apply?
+    - where do i apply to go abroad?
+    - i want to go abroad. will i need a cv?
+- intent: select_partner_universities
+  examples: |
+    - Tell me about partner universities for exchange programs
+    - What universities can I choose for studying abroad?
+    - Explain the options for partner universities in exchange programs
+    - Can you provide a list of universities for international exchanges?
+    - I want information about universities involved in exchange programs
+    - Tell me about the universities available for studying abroad
+    - I want to know which universities I can apply to
+    - Hey, I'm exploring universities for my exchange semester. What are my options?
+    - what universities can i choose for studying abroad?
+- intent: tell_degree
+  examples: |
+    - I'm pursuing a degree in [Electrical Engineering](study_program)
+    - My degree is in [Computer Science](study_program)
+    - [Business Informatics](study_program)
+    - [Tourism](study_program)
+    - [Mechatronics](study_program)
+    - [Health Informatics](study_program)
+    - [Psychology](study_program)
+    - [Sport](study_program)
+    - [Logistics](study_program)
+    - [Bioinformatics](study_program)
+    - [Health](study_program)
+    - [design](study_program)
+    - I study [Business](study_program)
+    - I'm majoring in [Management](study_program)
+    - I'm enrolled in a [Engineering](study_program) program
+    - [Economics](study_program) is my field of study
+    - My academic focus is on [IM](study_program)
+    - I'm studying [Technology Management](study_program)
+    - I just want a list of all available partner universities for [study_program]
+    - i'm currently studying [Electrical Engineering]{"entity": "study_program", "value": "engineering"}
+- synonym: computer science
+  examples: |
+    - Applied Computer Science
+    - ICT
+    - Comp sci
+    - CS
+    - AIN
+    - AIN-B
+    - AI
+    - Data Sciences
+    - Artificial Intelligence
+    - AI and Data Science
+    - Cyops
+    - cybercrime
+    - CY
+    - cybersec
+    - Cyber Security
+    - driving cars
+    - self-driving cars
+    - Electromobility, Autonomous Driving and Mobile Robotics
+    - Autonomous Driving
+    - Artificial Intelligence for Smart Sensors and Actuators
+    - Smart Sensors and Actuators
+    - Information Technology
+    - High Performance Computing
+    - Quantum Computing
+    - Automative Electronics
+- synonym: business informatics
+  examples: |
+    - Business Information Systems
+    - Digital Business Engineering
+- synonym: management
+  examples: |
+    - Management in Health, Social and Rescue Services
+    - manage
+    - Management and Administration
+    - Management of Inclusion and Participation
+    - Project Management for Digital Production
+    - Cosmetic Science & Management
+    - Operational Management
+    - Security Management
+    - Human Resource Management
+    - HR Management
+    - MBA General Management
+    - New Management
+    - Public Management
+    - Risk and Compliance management
+- synonym: IM
+  examples: |
+    - Strategic and International Management
+    - International Management
+    - SIM
+- synonym: engineering
+  examples: |
+    - Applied Research in Engineering Sciences
+    - General Engineering
+    - Building and Civil Engineering
+    - Civil and Construction Engineering
+    - CE
+    - Sustainable Buildings
+    - Civil Engineering
+    - Energy Systems Engineering
+    - Environmental Engineering
+    - Mechanical Engineering
+    - Mechanics
+    - Mechatronic and Cyber-Physical Systems
+    - Electrical Engineering
+    - Mechatronics
+- synonym: economics
+  examples: |
+    - Applied economics
+    - econ
+    - macro
+    - micro
+    - Foreign Commerce
+    - International Trade
+- synonym: technology management
+  examples: |
+    - Sustainability, Governance & Digitalisation
+    - Applied AI for Digital Production Management
+- synonym: tourism
+  examples: |
+    - Tourism Management
+    - TM
+    - Hospitality
+    - International Tourism Management
+    - International Tourism Development
+    - Transformation and sustainable living space development - redesigning tourism
+- synonym: business
+  examples: |
+    - Business
+    - Business Studies
+    - Business and Administration
+    - Business Administration
+    - Business admin
+    - MBA
+    - Business Development & Entrepreneurship
+    - MBA Company Succession
+    - International Business
+- synonym: health informatics
+  examples: |
+    - Healthcare Informatics
+    - Digital Health
+    - Bioinformatics
+    - Biological informatics
+    - BIN
+    - Life Science Informatics
+- synonym: psychology
+  examples: |
+    - Applied Psychology
+    - Social and Behavioral Sciences
+    - Organisational and Economic Psychology
+    - psych
+    - psy
+- synonym: sport
+  examples: |
+    - Applied Sports Science
+    - Applied Sports Science with Focus on Interprofessional Care in Sports
+- synonym: logistics
+  examples: |
+    - Applied Traffic Science
+- synonym: health
+  examples: |
+    - Physician Assistant
+    - Nursing
+    - Physiotherapy Majoring in Kinesiology
+    - Nursins Pedagogy
+    - Pedgogy in Rescue Services
+    - Global Public Health
+    - Mental Health
+    - Health Care
+    - Vocational Pedagogy - Health and Care
+- synonym: design
+  examples: |
+    - Technical Design

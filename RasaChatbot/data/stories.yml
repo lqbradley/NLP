@@ -1,0 +1,151 @@
+version: "3.1"
+
+stories:
+
+- story: application process 1
+  steps:
+  - intent: select_application
+  - action: utter_application
+  - intent: select_process
+  - action: utter_process
+  - action: utter_more_info
+  - intent: affirm
+  - action: utter_more_application_info
+
+
+
+- story: application process 2
+  steps:
+  - intent: select_application
+  - action: utter_application
+  - intent: select_process
+  - action: utter_process
+  - action: utter_more_info
+  - intent: deny
+
+
+- story: erasmus information 1
+  steps:
+  - intent: select_erasmus
+  - action: utter_erasmus
+  - action: utter_erasmus options
+  - intent: select_erasmus_apply
+  - action: utter_erasmus_application
+
+- story: erasmus information 2
+  steps:
+  - intent: select_erasmus
+  - action: utter_erasmus
+  - action: utter_erasmus_options
+  - intent: select_erasmus_more_info
+  - action: utter_erasmus_more_info
+
+
+
+- story: scholarship 1
+  steps:
+  - intent: select_funding
+  - action: utter_funding_options
+  - intent: select_erasmus_funding
+  - slot_was_set:
+      - slot_erasmus_funding: true
+  - action: utter_erasmus_funding
+  - action: utter_further_funding
+  - action: utter_funding_application
+  - action: utter_more_info
+
+- story: scholarship 2
+  steps:
+  - intent: select_funding
+  - action: utter_funding_options
+  - intent: select_not_erasmus
+  - slot_was_set:
+      - slot_erasmus_funding: false
+  - action: utter_all_funding
+  - action: utter_further_funding
+  - action: utter_funding_links
+  - action: utter_more_info
+
+
+- story: links to more information
+  steps:
+  - intent: select_links
+  - action: utter_links
+  - action: utter_more_info
+
+
+- story: documents
+  steps:
+  - intent: select_application
+  - action: utter_application
+  - intent: select_document
+  - action: utter_documents
+  - action: utter_more_info
+
+
+- story: university list erasmus
+  steps:
+  - intent: select_partner_universities
+  - action: utter_ask_slot_erasmus
+  - intent: affirm
+  - slot_was_set:
+      - slot_erasmus: true
+  - action: utter_ask_slot_degree_program
+  - intent: tell_degree
+  - action: action_get_universities
+
+
+- story: university list not erasmus
+  steps:
+  - intent: select_partner_universities
+  - action: utter_ask_slot_erasmus
+  - intent: deny
+  - slot_was_set:
+      - slot_erasmus: false
+  - action: utter_ask_slot_degree_program
+  - intent: tell_degree
+  - action: action_get_universities
+
+
+- story: user interrupts the conversation and doesn't want to continue
+  steps:
+    - intent: select_partner_universities
+    - action: utter_ask_slot_erasmus
+    - intent: deny
+    - action: utter_ask_slot_degree_program
+    - intent: stop
+    - action: utter_ask_continue
+    - intent: stop
+    - action: action_deactivate_loop
+    - active_loop: null
+
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  wait_for_user_input: false
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Greeting rule
+  conversation_start: true
+  steps:
+    - intent: greet
+    - action: utter_actions
+
+- rule: out-of-scope
+  steps:
+    - intent: out_of_scope
+    - action: utter_outofscope
+
+- rule: thankyou
+  steps:
+    - intent: thankyou
+    - action: utter_youarewelcome
+
+- rule: Handle low NLU confidence with two-stage-fallback
+  steps:
+    - intent: nlu_fallback
+    - action: action_two_stage_fallback
+    - active_loop: action_two_stage_fallback
